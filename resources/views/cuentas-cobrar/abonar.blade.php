@@ -134,7 +134,7 @@
 
             $("#totalinput").on("change", function() {
                 var total = $(this).val();
-                var totalCuenta = $("#total").text();
+                var totalCuenta = parseFloat($("#total").text());
                 if (total > totalCuenta) {
                     Swal.fire({
                         title: 'Ooops!',
@@ -146,7 +146,7 @@
 
             $("#guardar").on("click", function() {
                 var total = $("#totalinput").val();
-                var totalCuenta = $("#total").text();
+                var totalCuenta = parseFloat($("#total").text());
                 if (total > totalCuenta) {
                     Swal.fire({
                         title: 'Ooops!',
