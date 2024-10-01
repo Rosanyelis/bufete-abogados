@@ -225,6 +225,11 @@
                                                                     </div><!-- .nk-block-head-content -->
                                                                 </div>
                                                             </div>
+                                                            @if ($errors->has('file'))
+                                                            <div class="alert alert-fill alert-danger alert-dismissible alert-icon">
+                                                                <em class="icon ni ni-cross-circle"></em> <strong>Error</strong>! {{ $errors->first('file') }} <button class="close" data-dismiss="alert"></button>
+                                                            </div>
+                                                            @endif
                                                             <table class="datatable-init table">
                                                                 <thead>
                                                                     <tr>

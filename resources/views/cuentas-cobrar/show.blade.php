@@ -78,8 +78,8 @@
                                                                     @foreach ($data->pagos as $item)
                                                                     <tr>
                                                                         <td>{{ $item->id }}</td>
-                                                                        <td>{{ $item->fecha }}</td>
-                                                                        <td>{{ $item->monto }}</td>
+                                                                        <td>{{ date('Y-m-d', strtotime($item->created_at)) }}</td>
+                                                                        <td>{{ number_format($item->monto, 0, ',', '.') }}</td>
                                                                         <td>{{ $item->metodo_pago }}</td>
                                                                         <td>{{ $item->numero_referencia }}</td>
                                                                     </tr>
