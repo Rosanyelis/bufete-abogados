@@ -97,6 +97,9 @@ class RoleSeeder extends Seeder
         $permiso = Permission::create(['name' => 'expediente.index']);
         $rol->givePermissionTo($permiso);
         $Desarrollador->givePermissionTo($permiso);
+        $permiso = Permission::create(['name' => 'expediente.destroy']);
+        $rol->givePermissionTo($permiso);
+        $Desarrollador->givePermissionTo($permiso);
 
         $permiso = Permission::create(['name' => 'nota.create']);
         $rol->givePermissionTo($permiso);

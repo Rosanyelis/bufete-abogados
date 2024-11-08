@@ -77,6 +77,17 @@
                                                                         </a>
                                                                     </li>
                                                                     @endcan
+                                                                    @can('expediente.destroy')
+                                                                    <li>
+                                                                        <a href="#" class="delete-item" data-id="{{ $item->id }}">
+                                                                            <em class="icon ni ni-trash text-danger"></em>
+                                                                            <span class="text-danger" >Eliminar</span>
+                                                                        </a>
+                                                                        <form id="formEliminar-{{ $item->id }}" action="{{ route('expediente.destroy', ['id' => $item->id]) }}"method="POST">
+                                                                            @csrf
+                                                                        </form>
+                                                                    </li>
+                                                                    @endcan
                                                                     @can('expediente.changestatus')
                                                                     @if ($item->estado == 'Activo')
                                                                     <li>
@@ -156,6 +167,22 @@
                     Swal.fire({
                         title: '¿Está Seguro de Cambiar el estado del Expediente?',
                         text: "El cambio es irreversible!",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonText: 'Si, estoy seguro!'
+                    }).then((result) => {
+                        if (result.value) {
+                            $(formDelete).submit();
+                        }
+                    });
+                });
+
+                $('.datatable-init tbody').on('click', '.delete-item', function(){
+                    let dataid = $(this).data('id');
+                    let formDelete = $('#formEliminar-'+dataid);
+                    Swal.fire({
+                        title: '¿Está Seguro de Eliminar el Expediente?',
+                        text: "Toda información relacionada se perdera!",
                         icon: 'warning',
                         showCancelButton: true,
                         confirmButtonText: 'Si, estoy seguro!'

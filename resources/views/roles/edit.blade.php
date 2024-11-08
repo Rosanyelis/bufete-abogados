@@ -81,7 +81,12 @@
                                                                 </div>
                                                             </td>
                                                             <td>
-
+                                                                <div class="custom-control custom-checkbox custom-control-sm">
+                                                                    <input type="checkbox" class="custom-control-input "
+                                                                        name="permisos[]" id="expediente.destroy" value="expediente.destroy"
+                                                                        @if ($data->hasPermissionTo('expediente.destroy')) checked @endif>
+                                                                    <label class="custom-control-label" for="expediente.destroy"></label>
+                                                                </div>
                                                             </td>
                                                             <td>
                                                                 <div class="custom-control custom-checkbox custom-control-sm">

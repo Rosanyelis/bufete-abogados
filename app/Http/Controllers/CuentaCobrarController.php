@@ -36,6 +36,14 @@ class CuentaCobrarController extends Controller
         $data['users_id'] = auth()->user()->id;
         $data['cuenta_cobrars_id'] = $cuentaCobrar;
         AbonoCuentaCobrar::create($data);
+
+        $totalabono =AbonoCuentaCobrar::where('cuenta_cobrars_id', $cuentaCobrar)->sum('monto');
+        $cuenta = CuentaCobrar::find($cuentaCobrar);
+
+        if ($totalabono == $cuenta->monto) {
+            $cuenta->update(['estado' => 'Pagado']);
+        }
+
         return redirect()->route('cuenta-cobrar.index')->with('success', 'El registro se ha creado exitosamente.');
     }
 

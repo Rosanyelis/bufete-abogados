@@ -98,6 +98,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/expedientes/{id}/editar-expediente', [ExpendienteController::class, 'edit'])->name('expediente.edit');
     Route::put('/expedientes/{id}/actualizar-expediente', [ExpendienteController::class, 'update'])->name('expediente.update');
     Route::post('/expedientes/{id}/cambiar-estado-de-expediente', [ExpendienteController::class, 'changeStatus'])->name('expediente.changestatus');
+    Route::post('/expedientes/{id}/eliminar-expediente', [ExpendienteController::class, 'destroy'])->name('expediente.destroy');
 
     #Notas
     Route::post('/notas/{id}/guardar-nota', [NotaController::class, 'store'])->name('nota.store');

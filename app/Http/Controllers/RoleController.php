@@ -12,7 +12,8 @@ class RoleController extends Controller
      */
     public function index()
     {
-        $data = Role::all();
+        $data = Role::where('name', '!=', 'Desarrollador')->get();
+        // $data = Role::all();
         return view('roles.index', compact('data'));
     }
 

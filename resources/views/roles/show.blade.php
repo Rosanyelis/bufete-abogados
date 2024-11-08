@@ -48,7 +48,7 @@
                                                         <td>@if ($data->hasPermissionTo('expediente.create')) Si @endif</td>
                                                         <td>@if ($data->hasPermissionTo('expediente.show')) Si @endif</td>
                                                         <td>@if ($data->hasPermissionTo('expediente.edit')) Si @endif</td>
-                                                        <td></td>
+                                                        <td>@if ($data->hasPermissionTo('expediente.destroy')) Si @endif</td>
                                                         <td>@if ($data->hasPermissionTo('expediente.changestatus')) Si @endif</td>
                                                     </tr>
                                                     <tr>

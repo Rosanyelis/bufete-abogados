@@ -109,4 +109,14 @@ class ExpendienteController extends Controller
 
         return redirect()->route('expediente.index')->with('success', 'El estatus ha sido actualizado exitosamente.');
     }
+
+    public function destroy($id)
+    {
+        $data = Expendiente::find($id);
+        $data->cuentaCobrar()->delete();
+        $data->notas()->delete();
+        $data->archivos()->delete();
+        $data->delete();
+        return redirect()->route('expediente.index')->with('success', 'El registro se ha eliminado exitosamente.');
+    }
 }
